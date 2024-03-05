@@ -1,41 +1,39 @@
 package ej2;
 
+import java.util.Random;
+import java.util.Scanner;
+
 public class Libro {
 
-	String título="";
-	String autor="";
-	int ejemplares=0;
-	int prestados=0;
-	
-	public Libro(String título, String autor, int ejemplares, int prestados) {
-		super();
-		this.título = título;
-		this.autor = autor;
-		this.ejemplares = ejemplares;
-		this.prestados = prestados;
-	}
+	private String titulo = "";
+	private String autor = "";
+	private int ejemplares = 0;
+	private int prestados = 0;
 
 	public Libro() {
-		super();
+
 	}
-	
-	public boolean prestamo () {
-		
-		boolean prestado=false;
-		
+
+	public Libro(String titulo, String autor, int ejemplares, int prestados) {
+		if(titulo!=null && !titulo.endsWith("")) {
+		this.titulo = titulo;
+		}
+		if(autor != null&&!autor.equals("")) {
+			this.autor = autor;
+		}
+		if(ejemplares >0) {
+		this.ejemplares = ejemplares;
+		}
 		if(prestados>0) {
-			
-			prestado = true;
-		} 
-		return prestado;
-	}
-	
-	public boolean devuelto() {
-		boolean devuelto=true;
-		
-		if( = false) {
-			
+		this.prestados = prestados;
 		}
 	}
 	
+	public boolean prestamo() {
+		boolean prestado=false;
+		
+		
+		return prestado;
+	}
+
 }

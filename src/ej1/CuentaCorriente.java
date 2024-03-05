@@ -8,12 +8,12 @@ public class CuentaCorriente {
 	/**
 	 * Cadena donde se almacena el dni del titular
 	 */
-	private String dni;
+	private String dni="";
 
 	/**
 	 * Cadena donde se almacena el nombre del titular
 	 */
-	private String nombre;
+	private String nombre="";
 
 	/**
 	 * Decimal donde se almacenara el dinero que tiene cada titular
@@ -29,7 +29,7 @@ public class CuentaCorriente {
 	 *              codiciones (que no sea menor que cero)
 	 */
 	public CuentaCorriente(String dni, double saldo) {
-		super();
+
 		if (!dni.equals(null) && !dni.equals("")) {
 
 			this.dni = dni;
@@ -47,55 +47,70 @@ public class CuentaCorriente {
 	 * 
 	 * @param dni    Cadena que almacenara el dni del titular, siguiendo ciertas
 	 *               condiciones (que no sea nulo y que no sea cadena vacia)
-	 * @param nombre Cadena introducida por el usuario que alamcenara el nombre del titular
+	 * @param nombre Cadena introducida por el usuario que alamcenara el nombre del
+	 *               titular
 	 * @param saldo  Decimal que almacenara el dinero del titular, siguiendo ciertas
 	 *               codiciones (que no sea menor que cero)
 	 */
 	public CuentaCorriente(String dni, String nombre, double saldo) {
-		super();
 
-		if (!dni.equals(null) && !dni.equals("")) {
+		this(dni, saldo);
 
-			this.dni = dni;
-
-		}
-		if (!nombre.equals(null) && !nombre.equals("")) {
-
+		if (nombre != null && !nombre.equals("")) {
 			this.nombre = nombre;
-
 		}
-		if (saldo >= 0) {
-			this.saldo = saldo;
+	}
 
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		if (nombre != null && !nombre.equals("")) {
+			this.nombre = nombre;
 		}
+	}
+
+	public double getSaldo() {
+		return saldo;
+	}
+
+	public void setSaldo(double saldo) {
+		this.saldo = saldo;
+	}
+
+	public String getDni() {
+		return dni;
 	}
 
 	public boolean sacarDinero(double cantidad) {
 
-		boolean seSaca= false;
-		
-		if (cantidad > saldo) {
+		boolean seSaca = false;
 
-		} else {
-			seSaca=true;
-			saldo -= cantidad;
+		if (cantidad <= this.saldo) {
+
+			seSaca = true;
+			this.saldo -= cantidad;
+
 		}
-		
+
 		return seSaca;
 	}
 
 	public void ingresarDinero(double ingreso) {
 
-		System.out.println("Saldo ingresado: " + ingreso);
+		if (ingreso > 0) {
+			this.saldo += ingreso;
+		}
 
-		saldo += ingreso));
 	}
 
-	public void mostrarMenu() {
-
-		System.out.println("Titular: " + dni);
-		System.out.println("Nombre: " + nombre);
-		System.out.println("Saldo: " + saldo);
+	public void mostrarInformacion() {
+		System.out.println("**********************************\n");
+		System.out.println("Titular: " + this.nombre);
+		System.out.println("DNI: " + this.dni);
+		System.out.println("Saldo: " + this.saldo);
+		System.out.println("**********************************");
 	}
 
 }
