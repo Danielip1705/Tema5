@@ -85,7 +85,7 @@ public class Main1 {
 		System.out.println("------------------------------------------\n");
 		System.out.println("Inserte que opcion vas a realizar");
 		System.out.println("1. Sacar dinero");
-		System.out.println("2. Ingresar dinero:");
+		System.out.println("2. Ingresar dinero");
 		System.out.println("3. Mostrar informacion");
 		System.out.println("4. Salir de la cuenta corriente");
 		System.out.println("------------------------------------------");

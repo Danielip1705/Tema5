@@ -18,36 +18,40 @@ public class Punto {
         this.x = x;
         this.y = y;
     }
-    /**
-     * Get de atributo X
-     * @return atributo X
-     */
+   
     public int getX() {
-        return x;
-    }
-    
-    /**
-     * Set de atributo x
-     * @param x Atributo X
-     */
-    public void setX(int x) {
-        this.x = x;
-    }
+		return x;
+	}
 
-    /**
-     * Get de atributo Y
-     * @return Atributo Y
-     */
-    public int getY() {
-        return y;
-    }
+	public void setX(int x) {
+		this.x = x;
+	}
 
+	public int getY() {
+		return y;
+	}
+
+	public void setY(int y) {
+		this.y = y;
+	}
+
+	
     /**
-     * Set de atributo Y
-     * @param y Atributo Y
+     * Funcion que modifica las coordenadas
+     * @param x Numero entero para modificar la coordenada X
+     * @param y Numero entero para modificar la coordenada Y
      */
-    public void setY(int y) {
-        this.y = y;
+    public void setXY(int x, int y) {
+    	this.x = x;
+    	 this.y = y;
+    }
+    /**
+     * Funcion que imprime Coordenadas
+     * @param p Objeto de la clase punto
+     */
+ public void imprimePuntos(Punto p) {
+    	
+    	System.out.println("Coordenadas: ("+p.getX()+","+p.getY()+")");
     }
 
     /**
@@ -60,6 +64,7 @@ public class Punto {
         this.y += dy;
     }
 
+   
     /**
      * Funcion que calcula la distancia de ambos puntos
      * @param p Objeto de clase P

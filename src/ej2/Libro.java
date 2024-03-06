@@ -1,7 +1,6 @@
 package ej2;
 
-import java.util.Random;
-import java.util.Scanner;
+
 
 /**
  * Clase libro donde tendra atributos, constructores y funciones
