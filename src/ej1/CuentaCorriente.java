@@ -61,28 +61,53 @@ public class CuentaCorriente {
 		}
 	}
 
+	/**
+	 * Set donde muestra el atributo nombre
+	 * @return Atributo que contiene el nombre del titular
+	 */
 	public String getNombre() {
 		return nombre;
 	}
 
+	/**
+	 * Set donde modifica el atributo nombre
+	 * @param nombre Atributo que contiene el nombre del titular
+	 */
 	public void setNombre(String nombre) {
 		if (nombre != null && !nombre.equals("")) {
 			this.nombre = nombre;
 		}
 	}
 
+	/**
+	 * Get que muestra el saldo del titular
+	 * @return Numero entero que contiene el saldo del titular
+	 */
 	public double getSaldo() {
 		return saldo;
 	}
 
+	/**
+	 * Set que modifica el saldo del titular
+	 * @param saldo Atributo que contiene el saldo del titular
+	 */
 	public void setSaldo(double saldo) {
 		this.saldo = saldo;
 	}
 
+	/**
+	 * get Que muestra el dni del titular
+	 * @return Cadena que contiene el dni del titular
+	 */
 	public String getDni() {
 		return dni;
 	}
 
+	/**
+	 * Funcion que resta X cantidad al atributo saldo
+	 * @param cantidad Numero decimal que restara al atributo saldo
+	 * @return Booleano true o false dependiendo si hay suficiente saldo o no
+	 */
 	public boolean sacarDinero(double cantidad) {
 
 		boolean seSaca = false;
@@ -97,6 +122,10 @@ public class CuentaCorriente {
 		return seSaca;
 	}
 
+	/**
+	 * Funcion que suma X cantidad al atributo saldo
+	 * @param ingreso Numero decimal que sumara al atributo saldo
+	 */
 	public void ingresarDinero(double ingreso) {
 
 		if (ingreso > 0) {
@@ -105,6 +134,9 @@ public class CuentaCorriente {
 
 	}
 
+	/**
+	 * Funcion que mostrara la informacion de los atributos del titular
+	 */
 	public void mostrarInformacion() {
 		System.out.println("**********************************\n");
 		System.out.println("Titular: " + this.nombre);
