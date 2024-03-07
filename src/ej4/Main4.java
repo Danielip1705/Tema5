@@ -9,6 +9,7 @@ public class Main4 {
 		String nombre;
 		double precio;
 		int cantidad;
+		int descuento;
 		int ops;
 		
 		//Imprimimos en consola que nos indique el nombre del articulo
@@ -38,10 +39,56 @@ public class Main4 {
 			System.out.println("2. Mostrar precio con IVA");
 			System.out.println("3. Mostrar descuento del articulo");
 			System.out.println("4. Cantidad de objetos tras la venta");
-			System.out.println("5. Cantidad");
+			System.out.println("5. Cantidad de objetos a almacenar");
+			System.out.println("6. Salir del Programa");
 			
+			ops = sc.nextInt();
 			
-		}while();
+			switch (ops) {
+			
+			case 1:
+				art.imprimirInformacion();
+				break;
+			case 2:
+				System.out.println(art.getPVP());
+				art.getPVP();
+				break;
+			case 3:
+				System.out.println("Indique que descuento tiene el articulo");
+				
+				descuento = sc.nextInt();
+				
+				System.out.println(art.getPVPDescuento(descuento));
+				
+				break;
+			case 4:
+				System.out.println("Indique cuantos articulos se han vendido");
+				
+				cantidad = sc.nextInt();
+				if(art.vender(cantidad)) {
+					System.out.println();
+				}
+			
+				break;
+			case 5:
+				System.out.println("Indique cuantos articulos se van a almacenar");
+				
+				cantidad = sc.nextInt();
+				
+				if(art.almacenar(cantidad)) {
+					
+				}
+				
+				break;
+			case 6:
+				System.out.println("Saliendo del programa");
+				break;
+				
+				default:
+					System.out.println("Esta opcion no existe");
+			}
+			
+		}while(ops!=5);
 		
 		
 		

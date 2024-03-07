@@ -33,7 +33,7 @@ public class Articulo {
 	 *                      atributo cuantosQuedan
 	 */
 	public Articulo(String nombre, double precio, int cuantosQuedan) {
-		if (nombre != null && nombre.equals("")) {
+		if (nombre != null && !nombre.equals("")) {
 			this.nombre = nombre;
 		}
 		if (precio > 0) {
@@ -160,10 +160,13 @@ public class Articulo {
 	 * 
 	 * @param cantidadAlmacenar Cantidad de articulos que se va a almacenar
 	 */
-	public void almacenar(int cantidadAlmacenar) {
+	public boolean almacenar(int cantidadAlmacenar) {
 
+		boolean almacenado=false;
 		if (cantidadAlmacenar > 0) {
 			this.cuantosQuedan += cantidadAlmacenar;
+			almacenado=true;
 		}
+		return almacenado;
 	}
 }
