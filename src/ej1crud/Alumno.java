@@ -1,4 +1,4 @@
-package ej1_crud;
+package ej1crud;
 
 public class Alumno {
 
