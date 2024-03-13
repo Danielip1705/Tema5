@@ -186,4 +186,17 @@ public class Gesticial {
 
 	}
 
+	@Override
+	public boolean equals(Object obj) {
+		boolean iguales = false;
+		
+		Gesticial ges = (Gesticial) obj;
+		
+		if(this.codigo==ges.codigo) {
+			iguales = true;
+		}
+		
+		return iguales;
+	}
+
 }

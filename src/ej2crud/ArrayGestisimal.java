@@ -94,34 +94,51 @@ public class ArrayGestisimal {
 	 * @param codigo Cadena que contiene el codigo del articulo a modificar
 	 * @param stock  Numero entero que contiene el numero de articulos almacenados
 	 */
-	public static void entradaMercancia(String codigo, int stock) {
+	public static boolean entradaMercancia(String codigo, int stock) {
+		boolean merc = false;
 
 		int i = buscarArticulo(codigo);
 
 		if (i < articulos.length) {
-			articulos[i].setStock(articulos[i].getStock() + stock);
 
+			if (stock >= 0) {
+				articulos[i].setStock(articulos[i].getStock() + stock);
+				merc = true;
+			}
 		}
+
+		return merc;
 	}
 
 	/**
 	 * Funcion que elimina stock al articulo segun el codigo
 	 * 
-	 * @param codigo
-	 * @param stock
+	 * @param codigo Cadena que contiene el codigo del articulo
+	 * @param stock  Numero entero que contiene la cantidad del articulo
 	 */
-	public static void salidaMercancia(String codigo, int stock) {
+	public static boolean salidaMercancia(String codigo, int stock) {
+		boolean merc = false;
+
 		int i = buscarArticulo(codigo);
 
-		if (stock < articulos[i].getStock()) {
+		if (i < articulos.length) {
 
-			if (i < articulos.length) {
+			if (stock >= 0) {
 				articulos[i].setStock(articulos[i].getStock() - stock);
+				merc = true;
 			}
 		}
+
+		return merc;
 	}
 
-	public static int buscarArticulo(String codigo) {
+	/**
+	 * Funcion que busca la posicion del objeto segun el codigo
+	 * 
+	 * @param codigo Cadena que contiene el codigo del articulo
+	 * @return Numero entero de la posicion del obejto en el array
+	 */
+	private static int buscarArticulo(String codigo) {
 		int i = 0;
 		while (i < articulos.length && (articulos[i] == null || !articulos[i].getCodigo().equals(codigo))) {
 			i++;

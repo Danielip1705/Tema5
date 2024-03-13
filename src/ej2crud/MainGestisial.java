@@ -5,80 +5,81 @@ import java.util.Scanner;
 public class MainGestisial {
 
 	public static void main(String[] args) {
-		//Declaracion de variables
+		// Declaracion de variables
 		String codigo;
 		String descripcion;
 		double compra;
 		double venta;
 		int stock;
-		int ops=0;
-		
-		//Creacion del scanner
+		int ops = 0;
+
+		// Creacion del scanner
 		Scanner sc = new Scanner(System.in);
-		
-		//Creamos bucle while
+
+		// Creamos bucle while
 		do {
-			
-			//Imprimimos menu
+
+			// Imprimimos menu
 			menu();
-			
-			//Escribimos ops
+
+			// Escribimos ops
 			ops = sc.nextInt();
-			
-			//Limpiamos el buffer de escritura
+
+			// Limpiamos el buffer de escritura
 			sc.nextLine();
-			
-			//Declaramos switch teniendo en cuenta el resultado de ops
-			switch(ops) {
-			
-			//Caso 1
+
+			// Declaramos switch teniendo en cuenta el resultado de ops
+			switch (ops) {
+
+			// Caso 1
 			case 1:
-				
-				//Imprimimos el listado a traves de la funcion listado de la clase arrayGestisimal
+
+				// Imprimimos el listado a traves de la funcion listado de la clase
+				// arrayGestisimal
 				ArrayGestisimal.listado();
-				
-				//Rompemos caso 
+
+				// Rompemos caso
 				break;
-				
-				//Caso 2
+
+			// Caso 2
 			case 2:
-				
-				//Imprimimos en consola el titulo del programa
+
+				// Imprimimos en consola el titulo del programa
 				System.out.println("Registro de articulos");
-				
-				//Imprimimos en consola que indique el codigo
+
+				// Imprimimos en consola que indique el codigo
 				System.out.println("Indique el codigo del articulo");
-				
-				//Escribimos codigo
-				codigo=sc.nextLine();
-				
-				//Imprimimos en consola que indique la descripcion 
+
+				// Escribimos codigo
+				codigo = sc.nextLine();
+
+				// Imprimimos en consola que indique la descripcion
 				System.out.println("Indique la descripcion del articulo");
-				
-				//escribimos descripcion
+
+				// escribimos descripcion
 				descripcion = sc.nextLine();
-				
-				//Imprimimos que indique el precio de la compra
+
+				// Imprimimos que indique el precio de la compra
 				System.out.println("Indique el precio de compra del articulo");
-				
-				//Escribimos compra
+
+				// Escribimos compra
 				compra = sc.nextDouble();
-				
-				//Imprimimos que indique el precio de venta del articulo
+
+				// Imprimimos que indique el precio de venta del articulo
 				System.out.println("Indique el precio de venta del articulo");
-				
-				//escribimos venta
+
+				// escribimos venta
 				venta = sc.nextDouble();
-				
-				//Limpiamos buffer
+
+				// Limpiamos buffer
 				sc.nextLine();
-				
-				//Imprimimos el 
+
+				// Imprimimos el
 				System.out.println("Indique el stock del articulo");
-				
+
 				stock = sc.nextInt();
 				sc.nextLine();
-				if(ArrayGestisimal.altaArticulo(codigo, descripcion, compra, venta, stock)) {
+				if (ArrayGestisimal.altaArticulo(codigo, descripcion, compra, venta, stock)) {
 					System.out.println("Articulo añadido");
 				} else {
 					System.out.println("Lista de articulos llena");
@@ -86,9 +87,9 @@ public class MainGestisial {
 				break;
 			case 3:
 				System.out.println("Indique el codigo del articulo que quiere eliminar");
-				codigo=sc.nextLine();
-				
-				if(ArrayGestisimal.bajaArticulo(codigo)) {
+				codigo = sc.nextLine();
+
+				if (ArrayGestisimal.bajaArticulo(codigo)) {
 					System.out.println("Articulo eliminado");
 				} else {
 					System.out.println("El articulo no existe");
@@ -105,7 +106,7 @@ public class MainGestisial {
 				System.out.println("Inserte el precio de venta nuevo");
 				venta = sc.nextDouble();
 				sc.nextLine();
-				if(ArrayGestisimal.modificar(codigo, descripcion, compra, venta)) {
+				if (ArrayGestisimal.modificar(codigo, descripcion, compra, venta)) {
 					System.out.println("Articulo modificado");
 				} else {
 					System.out.println("El articulo no existe");
@@ -117,7 +118,11 @@ public class MainGestisial {
 				System.out.println("Inserte la entrada de mercancia");
 				stock = sc.nextInt();
 				sc.nextLine();
-				ArrayGestisimal.entradaMercancia(codigo, stock);
+				if (ArrayGestisimal.entradaMercancia(codigo, stock)) {
+					System.out.println("Se ha realizado la entrada de la mercancia correctamente");
+				} else {
+					System.out.println("No se ha realizado la entrada de la mercancia");
+				}
 				break;
 			case 6:
 				System.out.println("Inserte el codigo");
@@ -125,18 +130,22 @@ public class MainGestisial {
 				System.out.println("Inserte la salida de mercancia");
 				stock = sc.nextInt();
 				sc.nextLine();
-				ArrayGestisimal.salidaMercancia(codigo, stock);
+				if (ArrayGestisimal.salidaMercancia(codigo, stock)) {
+					System.out.println("Se ha realizado la salida de la mercancia correctamente");
+				} else {
+					System.out.println("No se ha realizado la salida de la mercancia");
+				}
 				break;
-			case 7: 
+			case 7:
 				System.out.println("Saliendo del programa");
 				break;
 			default:
-				System.out.println("Esta opcion no existe");	
+				System.out.println("Esta opcion no existe");
 			}
-		}while(ops!=7);
-		
+		} while (ops != 7);
+
 		sc.close();
-		
+
 	}
 
 	public static void menu() {
