@@ -1,5 +1,7 @@
 package ej3crud;
 
+import java.util.Objects;
+
 public class Pizza {
 
 	/**
@@ -20,7 +22,7 @@ public class Pizza {
 	/**
 	 * Cadena que contiene el estado de la pizza
 	 */
-	private String estado = "pedida";
+	private String estado = "PEDIDA";
 
 	/**
 	 * Constructor sin parametros
@@ -41,15 +43,21 @@ public class Pizza {
 		if (codigo > 0) {
 			this.codigo = codigo;
 		}
-		if (tamaño != null && !tamaño.equals("") && tamaño.equalsIgnoreCase("Medianda")
-				&& tamaño.equalsIgnoreCase("Familiar")) {
-			this.tamaño = tamaño;
+		if (tamaño != null && !tamaño.equals("") && tamaño.equalsIgnoreCase("Mediana")
+				|| tamaño.equalsIgnoreCase("Familiar")) {
+			this.tamaño = tamaño.toUpperCase();
 		}
 		if (tipo != null && !tipo.equals("") && tipo.equalsIgnoreCase("Margarita")
-				&& tipo.equalsIgnoreCase("CuatroQuesos") && tipo.equalsIgnoreCase("Funghi")) {
-			this.tipo = tipo;
+				|| tipo.equalsIgnoreCase("CuatroQuesos") || tipo.equalsIgnoreCase("Funghi")) {
+			this.tipo = tipo.toUpperCase();
 		}
 
+	}
+
+	public Pizza(int codigo) {
+		if (codigo > 0) {
+			this.codigo = codigo;
+		}
 	}
 
 	/**
@@ -67,7 +75,9 @@ public class Pizza {
 	 * @param codigo Numero entero modificado que representa el codigo de la pizza
 	 */
 	public void setCodigo(int codigo) {
-		this.codigo = codigo;
+		if (codigo > 0) {
+			this.codigo = codigo;
+		}
 	}
 
 	/**
@@ -85,7 +95,10 @@ public class Pizza {
 	 * @param tamaño Cadena modificada que representa el tamaño de la pizza
 	 */
 	public void setTamaño(String tamaño) {
-		this.tamaño = tamaño;
+		if (tamaño != null && !tamaño.equals("") && tamaño.equalsIgnoreCase("Mediana")
+				|| tamaño.equalsIgnoreCase("Familiar")) {
+			this.tamaño = tamaño.toUpperCase();
+		}
 	}
 
 	/**
@@ -105,7 +118,10 @@ public class Pizza {
 	 *             o Funghi)
 	 */
 	public void setTipo(String tipo) {
-		this.tipo = tipo;
+		if (tipo != null && !tipo.equals("") && tipo.equalsIgnoreCase("Margarita")
+				|| tipo.equalsIgnoreCase("CuatroQuesos") || tipo.equalsIgnoreCase("Funghi")) {
+			this.tipo = tipo.toUpperCase();
+		}
 	}
 
 	/**
@@ -129,14 +145,27 @@ public class Pizza {
 
 	@Override
 	public String toString() {
-		String cadena="";
-		cadena+= "Codigo: "+this.codigo+"\n";
-		cadena+= "tamaño: "+this.tamaño+"\n";
-		cadena+= "tipo: "+this.tipo+"\n";
-		cadena+= "estado: "+this.estado+"\n";
-		
+		String cadena = "";
+		cadena += "Codigo: " + this.codigo + "\n";
+		cadena += "tamaño: " + this.tamaño + "\n";
+		cadena += "tipo: " + this.tipo + "\n";
+		cadena += "estado: " + this.estado + "\n";
+
 		return cadena;
 	}
 
-	
+	@Override
+	public boolean equals(Object obj) {
+		boolean iguales = false;
+
+		Pizza piz1 = (Pizza) obj;
+
+		if (this.codigo == piz1.codigo) {
+			iguales = true;
+		}
+
+		return iguales;
+
+	}
+
 }

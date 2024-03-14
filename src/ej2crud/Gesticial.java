@@ -70,6 +70,9 @@ public class Gesticial {
 		}
 	}
 
+	public Gesticial(String codigo) {
+		this.codigo=codigo;
+	}
 	/**
 	 * Get que muestra el codigo
 	 * 

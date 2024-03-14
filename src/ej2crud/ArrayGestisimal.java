@@ -58,6 +58,7 @@ public class ArrayGestisimal {
 		if (i < articulos.length) {
 			articulos[i] = null;
 			eliminado = true;
+			
 		}
 
 		return eliminado;
@@ -140,7 +141,10 @@ public class ArrayGestisimal {
 	 */
 	private static int buscarArticulo(String codigo) {
 		int i = 0;
-		while (i < articulos.length && (articulos[i] == null || !articulos[i].getCodigo().equals(codigo))) {
+		
+		Gesticial ges = new Gesticial(codigo);
+		
+		while (i < articulos.length && (articulos[i].equals(ges) || !articulos[i].getCodigo().equals(codigo))) {
 			i++;
 		}
 		return i;
