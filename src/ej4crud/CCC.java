@@ -65,9 +65,6 @@ public class CCC {
 		}
 	}
 
-	public CCC(String dni) {
-		this.dni=dni;
-	}
 	/**
 	 * Set donde muestra el atributo nombre
 	 * 

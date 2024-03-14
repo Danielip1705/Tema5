@@ -47,6 +47,17 @@ public class CCCmain {
 			case 3:
 				System.out.println("Inserte el dni de la cuenta que quiere eliminar");
 				dni = sc.nextLine();
+				System.out.println("Inserte el nombre de la cuenta que quiere eliminar");
+				nombre = sc.nextLine();
+				System.out.println("Inserte el saldo de la cuenta que quiere eliminar");
+				saldo = sc.nextDouble();
+				cun = new CCC(dni,nombre,saldo);
+				if(CCCarray.eliminarCuenta(cun)) {
+					
+					System.out.println("Eliminado con exito");
+				} else {
+					System.out.println("Error");
+				}
 				break;
 			}
 

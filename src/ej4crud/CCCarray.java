@@ -32,12 +32,9 @@ public class CCCarray {
 	public static boolean eliminarCuenta(CCC cun) {
 		boolean eliminado = false;
 		int i=0;
-		
-		while(i< cuenta.length&& cuenta[i].getDni()==dni) {
-			i++;
-		}
-		
-		if(i<cuenta.length) {
+		int pos = buscarTitular(cun);
+	
+		if(pos!=-1) {
 			
 			cuenta[i]=null;
 			
