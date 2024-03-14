@@ -14,11 +14,7 @@ public class MainPizza {
 		
 		do {
 			
-			System.out.println("Eliga que opcion quiere elegir");
-			System.out.println("1. Listado de pizzas");
-			System.out.println("2. Nuevo pedido");
-			System.out.println("3. Pizza servida");
-			System.out.println("4. Salir");
+			menu();
 			ops = sc.nextInt();
 			sc.nextLine();
 			
@@ -64,6 +60,13 @@ public class MainPizza {
 		
 		
 
+	}
+	public static void menu() {
+		System.out.println("Eliga que opcion quiere elegir");
+		System.out.println("1. Listado de pizzas");
+		System.out.println("2. Nuevo pedido");
+		System.out.println("3. Pizza servida");
+		System.out.println("4. Salir");
 	}
 
 }

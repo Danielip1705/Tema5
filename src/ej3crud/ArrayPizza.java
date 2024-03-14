@@ -26,14 +26,10 @@ public class ArrayPizza {
 	 */
 	public static boolean nuevoPedido(Pizza piz) {
 		boolean añadido = false;
-		int pos = buscarPizzas(piz);
 		int i = 0;
 
-		if (pos == -1) {
-
-			while (i < pizzas.length && pizzas[i] != null) {
-				i++;
-			}
+		while (i < pizzas.length && pizzas[i] != null) {
+			i++;
 		}
 
 		if (i < pizzas.length) {
