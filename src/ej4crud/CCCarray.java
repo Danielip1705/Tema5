@@ -30,13 +30,14 @@ public class CCCarray {
 	}
 	
 	public static boolean eliminarCuenta(CCC cun) {
+		
 		boolean eliminado = false;
-		int i=0;
+		
 		int pos = buscarTitular(cun);
 	
-		if(pos!=-1) {
+		if(pos>=0) {
 			
-			cuenta[i]=null;
+			cuenta[pos]=null;
 			
 			eliminado = true;
 		}

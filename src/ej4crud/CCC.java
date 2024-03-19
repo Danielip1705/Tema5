@@ -26,18 +26,14 @@ public class CCC {
 	 * @param saldo Decimal que almacenara el dinero del titular, siguiendo ciertas
 	 *              codiciones (que no sea menor que cero)
 	 */
-	public CCC(String dni, double saldo) {
+	public CCC(String dni) {
 
-		if (!dni.equals(null) && !dni.equals("")) {
+		if (dni !=null && !dni.equals("")) {
 
 			this.dni = dni;
 
 		}
-		if (saldo >= 0) {
-
-			this.saldo = saldo;
-
-		}
+		
 	}
 
 	/**
@@ -133,7 +129,7 @@ public class CCC {
 		
 		CCC cuenta = (CCC) obj;
 		
-		if(this.dni==cuenta.dni) {
+		if(this.dni.equalsIgnoreCase(cuenta.dni)) {
 			
 			iguales = true;
 		}

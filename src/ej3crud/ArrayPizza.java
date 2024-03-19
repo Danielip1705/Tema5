@@ -47,22 +47,21 @@ public class ArrayPizza {
 	 * @param codigo Numero entero que representa el codigo
 	 * @return
 	 */
-	public static boolean pizzaServida(int codigo) {
+	public static boolean pizzaServida(Pizza piz) {
 		boolean servido = false;
-		int i = 0;
-
-		while (i < pizzas.length && pizzas[i].getCodigo() != codigo) {
-			i++;
-		}
-
-		if (i < pizzas.length) {
-			pizzas[i].setEstado("SERVIDA");
+		int pos = buscarPizzas(piz);
+		if (pos != -1) {
+			pizzas[pos].setEstado("SERVIDA");
 			servido = true;
 		}
 
 		return servido;
 	}
-
+	/**
+	 * Funcion que busca en el array el codigo de las pizzas segun el contenido del parametro de entrada
+	 * @param piz Objeto ha buscar en el array
+	 * @return Numero entero que contiene la posicion del array del objeto a buscar
+	 */
 	private static int buscarPizzas(Pizza piz) {
 		int i = 0;
 		int pos = -1;

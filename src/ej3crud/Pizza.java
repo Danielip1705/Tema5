@@ -154,18 +154,19 @@ public class Pizza {
 		return cadena;
 	}
 
+	
+
 	@Override
 	public boolean equals(Object obj) {
-		boolean iguales = false;
-
-		Pizza piz1 = (Pizza) obj;
-
-		if (this.codigo == piz1.codigo) {
-			iguales = true;
+		boolean igual = false;
+		Pizza piz = (Pizza) obj;
+		
+		if(this.codigo==piz.codigo) {
+			igual = true;
 		}
-
-		return iguales;
-
+		
+		return igual;
 	}
 
+ 	
 }

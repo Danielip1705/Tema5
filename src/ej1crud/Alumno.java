@@ -26,10 +26,10 @@ public class Alumno {
 	 * @param notaMedia Numero decimal que contiene la nota media del alumno
 	 */
 	public Alumno(String nombre, double notaMedia) {
-		if (this.nombre != null && !this.nombre.equals("")) {
+		if (nombre != null && !nombre.equals("")) {
 			this.nombre = nombre;
 		}
-		if (this.notaMedia >= 0 && this.notaMedia <= 10) {
+		if (notaMedia >= 0 && notaMedia <= 10) {
 			this.notaMedia = notaMedia;
 		}
 	}
@@ -42,22 +42,43 @@ public class Alumno {
 		return nombre;
 	}
 
+	/**
+	 * Set donde modifica el nombre del alumno
+	 * @param nombre Cadena que contiene el nombre del alumno
+	 */
 	public void setNombre(String nombre) {
-		if (this.nombre != null && !this.nombre.equals("")) {
+		if (nombre != null && !nombre.equals("")) {
 			this.nombre = nombre;
 		}
 		
 	}
-
+	
+	/**
+	 * Get que muestra la nota media del alumno
+	 * @return Numero decimal que contiene la nota media del alumno
+	 */
 	public double getNotaMedia() {
 		return notaMedia;
 	}
 
+	/**
+	 * Set que modifica la nota media del alumno
+	 * @param notaMedia Numero decimal modificado que contiene la nota media del alumno
+	 */
 	public void setNotaMedia(double notaMedia) {
-		if (this.notaMedia >= 0 && this.notaMedia <= 10) {
+		if (notaMedia >= 0 && notaMedia <= 10) {
 			this.notaMedia = notaMedia;
 		}
 	}
+
+	@Override
+	public String toString() {
+		String cadena ="";
+		cadena += "Nombre: " +this.nombre+"\n";
+		cadena += "Nota media: " +this.notaMedia;
+		return cadena;
+	}
+	
 	
 	
 
