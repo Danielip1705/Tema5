@@ -1,7 +1,5 @@
 package ej2;
 
-
-
 /**
  * Clase libro donde tendra atributos, constructores y funciones
  */
@@ -27,6 +25,9 @@ public class Libro {
 	 */
 	private int prestados = 0;
 
+	 enum Genero {NARRATIVO,LÍRICO,DRAMÁTICO,POÉTICO};
+	
+	private Genero genero;
 	/**
 	 * Constructor sin parametros
 	 */
@@ -37,8 +38,8 @@ public class Libro {
 	/**
 	 * Constructor con parametros
 	 */
-	public Libro(String titulo, String autor, int ejemplares, int prestados) {
-		if (titulo != null && !titulo.endsWith("")) {
+	public Libro(String titulo, String autor,Genero genero, int ejemplares, int prestados) {
+		if (titulo != null && !titulo.equals("")) {
 			this.titulo = titulo;
 		}
 		if (autor != null && !autor.equals("")) {
@@ -50,6 +51,51 @@ public class Libro {
 		if (prestados > 0) {
 			this.prestados = prestados;
 		}
+		
+		if(genero!=null) {
+			this.genero = genero;
+		}
+	}
+
+	
+	public String getTitulo() {
+		return titulo;
+	}
+
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+	}
+
+	public String getAutor() {
+		return autor;
+	}
+
+	public void setAutor(String autor) {
+		this.autor = autor;
+	}
+
+	public int getEjemplares() {
+		return ejemplares;
+	}
+
+	public void setEjemplares(int ejemplares) {
+		this.ejemplares = ejemplares;
+	}
+
+	public int getPrestados() {
+		return prestados;
+	}
+
+	public void setPrestados(int prestados) {
+		this.prestados = prestados;
+	}
+
+	public Genero getGenero() {
+		return genero;
+	}
+
+	public void setGenero(Genero genero) {
+		this.genero = genero;
 	}
 
 	/**
@@ -81,4 +127,16 @@ public class Libro {
 		return devuelto;
 	}
 
+	@Override
+	public String toString() {
+		String cadena ="";
+		cadena += "Titulo: " + this.titulo + "\n";
+		cadena += "Autor: " + this.autor+"\n";
+		cadena += "Genero: "+this.genero + "\n";
+		cadena += "Ejemplares: " +this.ejemplares+"\n";
+		cadena += "Prestados: "+this.prestados+"\n";
+		return cadena;
+	}
+
+	
 }

@@ -2,6 +2,8 @@ package ej2;
 
 import java.util.Scanner;
 
+import ej2.Libro.Genero;
+
 public class Main2 {
 
 	static Scanner sc = new Scanner(System.in);
@@ -10,36 +12,16 @@ public class Main2 {
 		//Creamos la variable que se van a utilizar en el programa
 		String titulo;
 		String autor;
+		String genero;
 		int ejemplares;
 		int prestados;
 		int ops=0;
+		Libro lib; 
+		Libro lib1;
 		
-		//Imprimimos en consola que inserte el nombre del libro
-		System.out.println("Inserte el nombre del libro");
+		lib = crearLibro();
 		
-		//Escribimos titulo
-		titulo = sc.nextLine();
-		
-		//Imprimimos en consola que inserte el autor del libro
-		System.out.println("Inserte el autor del libro");
-		
-		//Escribimos autor
-		autor = sc.nextLine();
-		
-		//Imprimimos en consola que inserte el numero de ejemplares
-		System.out.println("Inserte el numero de ejemplares que tiene el libro");
-		
-		//Escribimos ejemplares
-		ejemplares = sc.nextInt();
-		
-		//Imprimimos en consola que nos inserte el numero de libros que se han insertados
-		System.out.println("Inserte el numero de libros que se han prestados");
-		//Escribimos prestados
-		prestados = sc.nextInt();
-		
-		//Creamos el objeto con el constructor con parametros para inicializarlos
-		Libro lib = new Libro(titulo,autor,ejemplares,prestados);
-		
+		lib1 =crearLibro1();
 		//Creamos bucle do while
 		do {
 			
@@ -59,6 +41,81 @@ public class Main2 {
 		sc.close();
 		
 	}
+	public static Libro crearLibro1() {
+		String titulo;
+		String autor;
+		String genero;
+		int ejemplares;
+		int prestados;
+		Libro lib1;
+		//Imprimimos en consola que inserte el nombre del libro
+				System.out.println("Inserte el nombre del libro");
+				
+				//Escribimos titulo
+				titulo = sc.nextLine();
+				
+				//Imprimimos en consola que inserte el autor del libro
+				System.out.println("Inserte el autor del libro");
+				
+				//Escribimos autor
+				autor = sc.nextLine();
+				
+				System.out.println("Inserte el genero del libro que has elegido ");
+				System.out.println("[Narrativo, Lírico, Dramático, Didáctico y Poético]");
+				genero = sc.nextLine();
+				
+				//Imprimimos en consola que inserte el numero de ejemplares
+				System.out.println("Inserte el numero de ejemplares que tiene el libro");
+				
+				//Escribimos ejemplares
+				ejemplares = sc.nextInt();
+				sc.nextLine();
+				//Imprimimos en consola que nos inserte el numero de libros que se han insertados
+				System.out.println("Inserte el numero de libros que se han prestados");
+				//Escribimos prestados
+				prestados = sc.nextInt();
+				sc.nextLine();
+				lib1 = new Libro(titulo,autor,Genero.valueOf(genero),ejemplares,prestados);
+				return lib1;
+	}
+	public static Libro crearLibro() {
+		String titulo;
+		String autor;
+		String genero;
+		int ejemplares;
+		int prestados;
+		Libro lib;
+		//Imprimimos en consola que inserte el nombre del libro
+		System.out.println("Inserte el nombre del libro");
+		
+		//Escribimos titulo
+		titulo = sc.nextLine();
+		
+		//Imprimimos en consola que inserte el autor del libro
+		System.out.println("Inserte el autor del libro");
+		
+		//Escribimos autor
+		autor = sc.nextLine();
+		
+		System.out.println("Inserte el genero del libro que has elegido ");
+		System.out.println("[Narrativo, Lírico, Dramático, Didáctico y Poético]");
+		genero = sc.nextLine();
+		
+		//Imprimimos en consola que inserte el numero de ejemplares
+		System.out.println("Inserte el numero de ejemplares que tiene el libro");
+		
+		//Escribimos ejemplares
+		ejemplares = sc.nextInt();
+		sc.nextLine();
+		//Imprimimos en consola que nos inserte el numero de libros que se han insertados
+		System.out.println("Inserte el numero de libros que se han prestados");
+		//Escribimos prestados
+		prestados = sc.nextInt();
+		sc.nextLine();
+		//Creamos el objeto con el constructor con parametros para inicializarlos
+		lib = new Libro(titulo,autor,Genero.valueOf(genero),ejemplares,prestados);
+		return lib;
+	}
 	/**
 	 * Funcion que nos deja elegir opciones para realizar diferentes operaciones
 	 * @param ops Numero entero que sera el que elija la opcion a realizar
@@ -70,7 +127,6 @@ public class Main2 {
 		
 		//En el caso 1
 		case 1:
-			
 			//Declaramos con if que si el resultado de la funcion prestamos es true
 			// se realiza el prestamos
 			if(lib.prestamo()) {
@@ -105,7 +161,7 @@ public class Main2 {
 			break;
 			
 			//En el caso 3
-		case 3:
+		case 4:
 			
 			//Imprimimos en consola que nos salimos del programa
 			System.out.println("Saliendo del programa");
@@ -113,7 +169,9 @@ public class Main2 {
 			
 			//Rompemos caso 3
 			break;
-			
+		case 3:
+			System.out.println(lib);
+			break;
 			//Y si ops no es 1,2 o 3
 			default:
 				
@@ -130,7 +188,8 @@ public class Main2 {
 		System.out.println("Inserte que opcion vas a realizar");
 		System.out.println("1. Prestamo");
 		System.out.println("2. Devolución");
-		System.out.println("3. Salir del programa");
+		System.out.println("3. Listado");
+		System.out.println("4. Salir del programa");
 		System.out.println("-----------------------------------------");
 	}
 

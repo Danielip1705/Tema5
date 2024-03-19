@@ -12,6 +12,9 @@ public class Articulo {
 	 */
 	private double precio;
 
+	enum Departamento{Electrónica, Alimentación, Droguería};
+	
+	private Departamento departamento;
 	/**
 	 * Numero decimal constante que indica el IVA
 	 */
